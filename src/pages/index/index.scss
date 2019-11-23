@@ -1,0 +1,15 @@
+.index {
+  flex-direction: column;
+  width: 100%;
+}
+
+.item-wrap {
+  position: relative;
+}
+
+.item {
+  //position: absolute;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
