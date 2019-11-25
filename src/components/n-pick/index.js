@@ -27,16 +27,23 @@ export default class Npick extends Component {
     let dataList = []
     let value = []
 
-    console.log('....props...', this.props)
     data.map((item, index) => {
+      if (item.init < item.min) {
+        value.push(item.init)
+      } else if (item.init > item.max) {
+        value.push(item.max)
+      } else {
+        const tmpv = (item.init-item.min)/item.step
+        value.push(tmpv)
+      }
       let tmpList = []
-      value.push(item.min)
       for (let i = item.min; i <= item.max; i+=item.step) {
         tmpList.push(i)
         dataList[index] = tmpList
       }
     })
 
+    console.log('....props...', this.props, 'value:', value)
     this.setState({
       value: value,
       dataList: dataList,
@@ -76,7 +83,14 @@ export default class Npick extends Component {
 
 Npick.defaultProps = {
   onChange: () => {},
-  data: [],
+  data: [
+    {
+      min: 0,
+      max: 100,
+      step: 1,
+      init: 0,
+    },
+  ],
 }
 
 Npick.propTypes = {
@@ -85,5 +99,6 @@ Npick.propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
     step: PropTypes.number,
+    init: PropTypes.number,
   }))
 }
