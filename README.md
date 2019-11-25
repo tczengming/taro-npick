@@ -19,4 +19,4 @@ taro number pickerview, 嵌入页面的数字条滚动选择器
     ],
 </Prev>
 
- ![image](https://github.com/tczengming/taro-npick/tree/master/screenshots/sample.png)
+![sample](https://github.com/tczengming/taro-npick/blob/master/screenshots/sample.png)
